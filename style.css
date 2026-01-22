@@ -610,4 +610,218 @@ body {
 }
 
 
+/* VERTCAL LINE */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.next-section {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+}
+
+.bar-image {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 20px;
+}
+
+.subtitle {
+  font-size: 22px;
+  color: #777;
+  line-height: 1.5;
+  max-width: 700px;
+}
+
+/*5 image box*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.image-section {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;                /* 🔴 no gap */
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* LEFT LARGE IMAGE */
+.large {
+  height: 500px;
+}
+
+/* RIGHT GRID */
+.right-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;                /* 🔴 no gap */
+}
+
+.right-grid .box {
+  height: 250px;
+}
+
+/* OVERLAY TEXT */
+.overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+.overlay h3 {
+  color: #fff;
+  margin: 0;
+  font-size: 22px;
+}
+
+/* HOVER EFFECT */
+.box:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.box:hover img {
+  transform: scale(1.05);
+}
+
+
+/* TITLE – always visible */
+.ely {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.ely h3 {
+  color: #fff;
+  font-size: 22px;
+  margin: 0;
+}
+
+/* HOVER CONTENT */
+.overlay {
+  position: absolute;
+  inset: 0;
+  padding: 60px 20px 20px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2)
+  );
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease;
+}
+
+.overlay h3,
+.overlay p {
+  color: #fff;
+}
+
+/* SHOW ONLY EXTRA TEXT ON HOVER */
+.box:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* IMAGE ZOOM */
+.box img {
+  transition: transform 0.4s ease;
+}
+
+.box:hover img {
+  transform: scale(1.05);
+}
+
+.nav-grid-section {
+  background: #ffffff;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 40px;
+}
+.nav-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.nav-plus {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+
+  background: #000;
+  color: #fff;
+
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-plus:hover {
+  background: #333;
+}
+
+@media (max-width: 992px) {
+  .nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-grid {
+    grid-template-columns: 1fr;
+  }
+}
