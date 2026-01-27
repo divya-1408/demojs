@@ -8,6 +8,8 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
 
 
   <!-- Custom CSS -->
@@ -26,19 +28,38 @@
 
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Navigate your Next</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Industries</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="navigate.html">Navigate your Next</a></li>
+        <li class="nav-item"><a class="nav-link" href="institute.html">Infosys Knowledge Institute</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Investors</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
       </ul>
+      <!-- RIGHT ICONS -->
+<div class="nav-icons ms-3 d-flex align-items-center">
+
+  <!-- Search -->
+  <div class="nav-search">
+    <i class="bi bi-search"></i>
+  </div>
+
+  <!-- Menu circle -->
+  <div class="nav-circle-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</div>
+
     </div>
   </div>
 </nav>
 
+<div class="side-progress">
+  <ul id="progressList"></ul>
+</div>
 
 <!-- HERO CAROUSEL -->
-<section class="hero-carousel">
+<section class="page-section hero-carousel" data-title="Navigate Your Next">
 
   <div class="slide active" style="background-image: url('assessts/front1.png');">
     <div class="hero-text">
@@ -46,13 +67,13 @@
       <button class="outline-btn">KNOW MORE</button>
     </div>
   </div>
-  <div class="slide active" style="background-image: url('assessts/front2.png');">
+  <div class="slide" style="background-image: url('assessts/front2.png');">
     <div class="hero-text">
       <h2>Infosys Unveils first AI-First GCC Model<br> To Transform Global Capability<br> Centers into Innovation Hubs</h2>
       <button class="outline-btn">READ MORE</button>
     </div>
   </div>
-  <div class="slide active" style="background-image: url('assessts/front3.png');">
+  <div class="slide" style="background-image: url('assessts/front3.png');">
     <div class="hero-text">
       <h2>Champions Evolve</h2>
       <p>DIGITAL-FIRST | CLOUD-FIRST | AI-FIRST</p>
@@ -79,7 +100,7 @@
 </section>
 
 <!-- SECOND BIG IMAGE SECTION -->
-<section class="full-image-section">
+<section class="page-section full-image-section" data-title="Digital Core Capabilities">
 
   <!-- Background design bars -->
   <div class="design-bars"></div>
@@ -109,7 +130,7 @@
 
 </section>
 
-<section class="infosys-hero">
+<section class="page-section infosys-hero" data-title="Digital Operating Model">
 
   <!-- Decorative vertical bar -->
   <div class="infosys-bar"></div>
@@ -148,7 +169,7 @@
 
 </section>
 
-<section class="tt-hero-section">
+<section class="page-section tt-hero-section" data-title="Talent Transformation">
   <div class="tt-hero-row">
 
     <!-- LEFT TEXT ONLY -->
@@ -194,7 +215,7 @@
   </div>
 </section>
 
-<section class="next-section">
+<section class="next-section image-section light-section" data-title="The Next">
     <img src="assessts/vertical-line1.png" alt="decorative bar" class="bar-image">
 
     <h1 class="title">The next</h1>
@@ -207,7 +228,7 @@
 
   <!-- 5 image box -->
 
-<section class="image-section">
+<section class="page-section image-section light-section" data-title="The Next">
 
   <!-- LEFT BIG IMAGE -->
   <div class="box large">
@@ -361,8 +382,7 @@
 
   </div>
 </section>
-
-<section class="news-section">
+<section class="page-section light-section news-section" data-title="In the News">
   <div class="news-wrapper">
 
     <!-- LEFT PANEL -->
@@ -425,7 +445,7 @@
   </div>
 </section>
 
-<section class="investors-section">
+<section class="page-section light-section investors-section" data-title="Investors">
   <div class="investors-inner">
 
     <!-- Vertical lines image -->
@@ -506,7 +526,7 @@
   </div>
 </section>
 
-<section class="life-section">
+<section class="page-section light-section life-section" data-title="Careers">
 
   <div class="life-container">
 
@@ -681,7 +701,9 @@
   </button>
 
 </footer>
-
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

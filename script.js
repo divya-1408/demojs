@@ -1,19 +1,11 @@
 // Simple scroll animation effect
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".service-card").forEach(card => {
-    const position = card.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (position < screenHeight - 100) {
-      card.classList.add("show");
-    }
-  });
-});
-
 const slides = document.querySelectorAll(".hero-carousel .slide");
 const dots = document.querySelectorAll(".carousel-dots .dot");
-let currentIndex = 0;
 
+let current = 0;
+let interval;
+
+// Show slide
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.remove("active");
@@ -22,23 +14,27 @@ function showSlide(index) {
 
   slides[index].classList.add("active");
   dots[index].classList.add("active");
+  current = index;
 }
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+// Auto play
+function startAuto() {
+  interval = setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 4000); // 4 sec
 }
 
-/* Auto slide */
-setInterval(nextSlide, 5000);
-
-/* Dot click */
-dots.forEach((dot, index) => {
+// Dot click
+dots.forEach((dot, i) => {
   dot.addEventListener("click", () => {
-    currentIndex = index;
-    showSlide(currentIndex);
+    clearInterval(interval);
+    showSlide(i);
+    startAuto();
   });
 });
+
+startAuto();
 
 const navbar = document.querySelector(".custom-navbar");
 
@@ -57,3 +53,64 @@ const slide = document.querySelectorAll(".slide");
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
   }, 4000);
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+  const sections = document.querySelectorAll(".page-section");
+  const progressList = document.getElementById("progressList");
+  const sidebar = document.querySelector(".side-progress");
+
+  // create lines
+  sections.forEach((section) => {
+
+    const li = document.createElement("li");
+
+    const label = document.createElement("div");
+    label.className = "progress-label";
+    label.innerText = section.dataset.title;
+
+    li.appendChild(label);
+
+    li.addEventListener("click", () => {
+      section.scrollIntoView({ behavior: "smooth" });
+    });
+
+    progressList.appendChild(li);
+  });
+
+  const items = document.querySelectorAll(".side-progress li");
+
+
+  // observer
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        const index = [...sections].indexOf(entry.target);
+
+        // highlight active line
+        items.forEach(i => i.classList.remove("active"));
+        if(items[index]) items[index].classList.add("active");
+
+        entry.target.classList.add("show");
+
+
+        // ⭐ COLOR SWITCH LOGIC (THIS IS THE KEY)
+        if (entry.target.classList.contains("light-section")) {
+          sidebar.classList.add("dark-mode");   // black lines
+        } else {
+          sidebar.classList.remove("dark-mode"); // white lines
+        }
+
+      }
+
+    });
+
+  }, { threshold: 0.5 });
+
+
+  sections.forEach(section => observer.observe(section));
+
+});

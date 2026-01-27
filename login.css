@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #ffffff;
+  padding: 40px;   /* space on all sides */
+}
+
+/* ===== Layout ===== */
+.container {
+  display: flex;
+  max-width: 1300px;   /* reduce overall width */
+  margin: auto;        /* center horizontally */
+  min-height: 600px;   /* smaller height */
+  border: 1px solid #e5e5e5; /* light outer border like screenshot */
+}
+
+
+.left {
+  margin-right: 50px;
+  width: 55%;
+  background: #d7c6dc;
+  padding: 35px 45px;  /* smaller */
+}
+
+
+.left h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.left p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* features */
+.features {
+  display: flex;
+  justify-content: space-around;
+  margin: 60px 0;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature i {
+  font-size: 58px;
+  margin-bottom: 10px;
+}
+
+.note {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+.right {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 40px; /* smaller */
+}
+
+
+/* login card EXACT like screenshot */
+.login-card {
+  width: 420px;
+  border: 1px solid #dcdcdc;
+  padding: 28px 32px;
+}
+
+
+.login-card h2 {
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.brand {
+  color: #007cc3;
+  font-weight: bold;
+}
+
+
+/* input style */
+.input-box {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-box i {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.input-box input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  padding: 8px 0 8px 22px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-box input:focus {
+  border-color: #007cc3;
+}
+
+.eye {
+  left: auto;
+  right: 0;
+  cursor: pointer;
+}
+
+/* forgot */
+.forgot {
+  text-align: right;
+  margin-bottom: 18px;
+}
+
+.forgot a {
+  font-size: 13px;
+  color: #007cc3;
+  text-decoration: none;
+}
+
+/* button */
+button {
+  width: 100%;
+  background: #0c5f8f;
+  color: white;
+  border: none;
+  padding: 11px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #094b70;
+}
+
+/* register */
+.register {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.register a {
+  font-weight: bold;
+  color: #007cc3;
+  text-decoration: none;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .right {
+    align-items: center;
+    padding: 40px;
+  }
+}

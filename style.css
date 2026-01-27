@@ -6,6 +6,133 @@ body,html {
 }
 
 /* HERO */
+.side-progress {
+  position: fixed;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+}
+
+.side-progress ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-progress li {
+  width: 45px;
+  height: 2px;
+  background: rgba(255,255,255,0.35);
+  margin: 70px 0;   /*  change gap  */
+  position: relative;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+
+.side-progress li.active {
+  width: 70px;
+  height: 3px;
+  background: white;
+}
+
+
+/* TEXT UNDER LINE (FIXED) */
+.progress-label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  width: 90px;
+  line-height: 18px;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.side-progress li.active .progress-label {
+  opacity: 1;
+}
+
+
+/* AUTO COLOR SWITCH */
+
+/* default (dark bg) */
+.side-progress li {
+  background: rgba(255,255,255,0.35);
+}
+
+.side-progress li.active {
+  background: #fff;
+}
+
+.progress-label {
+  color: #fff;
+}
+
+
+/* when light section active */
+.side-progress.dark-mode li {
+  background: rgba(0,0,0,0.35);
+}
+
+.side-progress.dark-mode li.active {
+  background: #000;
+}
+
+.side-progress.dark-mode .progress-label {
+  color: #000;
+}
+
+/* 
+   NAV RIGHT ICONS
+*/
+
+.nav-icons {
+  gap: 20px;
+}
+
+/* search icon */
+.nav-search {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-search:hover {
+  transform: scale(1.1);
+}
+
+
+/* round menu button */
+.nav-circle-menu {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-circle-menu span {
+  width: 18px;
+  height: 2px;
+  background: #000;
+}
+
+.nav-circle-menu:hover {
+  transform: scale(1.05);
+}
 
 
 /* SERVICE CARD */
@@ -80,11 +207,13 @@ body,html {
   background-position: center;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
+  z-index: 0;
 }
 
 .hero-carousel .slide.active {
   opacity: 1;
   z-index: 1;
+  z-index: 2;
 }
 
 /* Overlay */
@@ -164,6 +293,13 @@ body,html {
   font-weight: 500;
 }
 
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+
 .custom-navbar .nav-link:hover {
   opacity: 0.8;
 }
@@ -208,6 +344,7 @@ body,html {
   overflow: hidden;
 }
 .image-text{
+  padding-top: 50px;
   position: absolute;
   top: 50%;
   left: 50px;
@@ -234,13 +371,24 @@ body,html {
 /* TEXT AREA */
 .image-text {
   position: absolute;
-  left: 10%;
-  top: 70%;
+  top: 50%;              /* center vertically */
+  left: 8%;              /* same left spacing like Infosys */
   transform: translateY(-50%);
   color: #fff;
-  max-width: 500px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* text left aligned */
+  gap: 18px;               /* proper spacing between items */
   z-index: 3;
 }
+
+.image-text h3 {
+  font-size: 50px;
+  font-weight: 200;
+  line-height: 1.1;
+}
+
 
 .image-text h1 {
   font-size: 56px;
@@ -249,8 +397,9 @@ body,html {
 
 .image-text p {
   font-size: 18px;
-  margin: 20px 0;
+  margin: 0;
 }
+
 
 /* BUTTON */
 .outline-btn {
@@ -265,11 +414,11 @@ body,html {
 .case-studies {
   display: flex;
   gap: 20px;
-  margin-top: 30px;
 }
 
+
 .case-box h2 {
-  font-size: 10px;
+  font-size: 8px;
   line-height: 1.4;
 }
 
@@ -329,8 +478,8 @@ body,html {
 }
 
 .case-box h2 {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   line-height: 1.3;
   margin: 20px 0;
 }
@@ -866,7 +1015,7 @@ body,html {
   letter-spacing: 1px;
 }
 
-/* IMAGE CONTAINER – FIXED SIZE (MATCHES SCREENSHOT) */
+/* IMAGE CONTAINER – FIXED SIZE */
 .opportunity-image-box {
   width: 520px;      /* SAME WIDTH */
   height: 360px;     /* SAME HEIGHT */
@@ -905,7 +1054,7 @@ body,html {
   padding: 60px 80px;
   text-align: center;
 
-  /* ⭐ angled corners */
+  /* angled corners */
   clip-path: polygon(
     0 0,
     calc(100% - 40px) 0,
@@ -1141,7 +1290,7 @@ body,html {
 .investors-lines {
   display: block;
   margin: 0 auto 24px;
-  height: 22px;   /* adjust if needed */
+  height: 22px;   /* adjust*/
   width: auto;
 }
 
@@ -1396,9 +1545,7 @@ body,html {
 }
 
 
-/* =========================
-   FULL WIDTH BACKGROUND
-========================= */
+/* FULL WIDTH BACKGROUND */
 .global-wrapper {
   width: 100vw;        /* forces FULL screen width */
   margin-left: calc(50% - 50vw);  /* escape parent container */
@@ -1408,9 +1555,7 @@ body,html {
 
 
 
-/* =========================
-   CENTER CONTENT ONLY
-========================= */
+/* CENTER CONTENT ONLY */
 .global-inner {
   max-width: 1250px;
   margin: auto;
@@ -1425,9 +1570,7 @@ body,html {
 
 
 
-/* =========================
-   LEFT GRID
-========================= */
+/* LEFT GRID */
 .region-grid {
   flex: 1;
   display: grid;
@@ -1452,9 +1595,7 @@ body,html {
 }
 
 
-/* =========================
-   RIGHT CONTENT
-========================= */
+/* RIGHT CONTENT */
 .region-content {
   flex: 1;
   color: white;
@@ -1481,7 +1622,7 @@ body,html {
   border-style: solid;
 }
 
-/* ===== Footer ===== */
+/*  Footer */
 .footer {
   background: #fff;
   padding: 80px 0 30px;
@@ -1527,7 +1668,7 @@ body,html {
   font-size: 20px;
 }
 
-/* ===== bottom row ===== */
+/* bottom row  */
 .footer-bottom {
   max-width: 1300px;
   margin: 60px auto 0;
@@ -1544,7 +1685,7 @@ body,html {
   font-size: 14px;
 }
 
-/* ===== Back to top button ===== */
+/* Back to top button */
 .top-btn {
   position: fixed;
   right: 30px;
